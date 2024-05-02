@@ -1,10 +1,7 @@
 package com.example.jwt_authentication_app.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,34 +9,28 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Table(name="users")
-@Entity
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name="Users")
+@Entity
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    @Getter
     private Integer id;
 
     @Column(name = "first_name")
-    @Getter
-    @Setter
     private String firstName;
 
     @Column(name="last_name")
-    @Getter
-    @Setter
     private String lastName;
 
     @Column(name="username")
-    @Setter
     private String email;
 
     @Column(name="password")
-    @Getter
-    @Setter
     private String password;
 
     @Enumerated(EnumType.STRING)
