@@ -1,6 +1,8 @@
 package com.example.jwt_authentication_app.exceptions;
 
 import io.jsonwebtoken.ExpiredJwtException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
 import org.springframework.security.authentication.AccountStatusException;
@@ -13,12 +15,14 @@ import java.security.SignatureException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    Logger LOG = LoggerFactory.getLogger(GlobalExceptionHandler.class);
     @ExceptionHandler(Exception.class)
     public ProblemDetail handleSecurityException(Exception exception)
     {
         ProblemDetail errorDetail = null;
 
-        exception.printStackTrace();
+       LOG.error("ERROR: " + exception.getMessage());
 
         if(exception instanceof BadCredentialsException)
         {
