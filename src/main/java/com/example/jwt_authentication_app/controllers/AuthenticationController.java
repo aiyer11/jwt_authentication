@@ -6,7 +6,6 @@ import com.example.jwt_authentication_app.entities.User;
 import com.example.jwt_authentication_app.responses.AuthenticationResponse;
 import com.example.jwt_authentication_app.services.AuthenticationService;
 import com.example.jwt_authentication_app.services.JwtService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
