@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -27,7 +27,7 @@ public class User implements UserDetails {
     @Column(name="last_name")
     private String lastName;
 
-    @Column(name="username")
+    @Column(name="email")
     private String email;
 
     @Column(name="password")

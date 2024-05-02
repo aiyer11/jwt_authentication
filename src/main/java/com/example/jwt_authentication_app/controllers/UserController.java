@@ -3,7 +3,6 @@ package com.example.jwt_authentication_app.controllers;
 import com.example.jwt_authentication_app.entities.User;
 import com.example.jwt_authentication_app.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +20,7 @@ public class UserController {
 
     @GetMapping("/me")
     public ResponseEntity<User> authenticatedUser() {
+        System.out.println("Hello");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         User currentUser = (User) auth.getPrincipal();
@@ -28,6 +28,7 @@ public class UserController {
         return ResponseEntity.ok(currentUser);
     }
 
+    @GetMapping("/all")
     public ResponseEntity<List<User>> allUsers() {
         List<User> users = userService.getAllUsers();
 
